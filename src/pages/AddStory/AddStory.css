@@ -1,0 +1,36 @@
+.add-story .input,
+.add-story .input-file {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 0.25rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.add-story [lang="ml"] .input,
+.add-story [lang="ml"] .input-file {
+  font-family: 'Manjari', 'Merriweather Sans', sans-serif;
+}
+
+.add-story .input:focus,
+.add-story .input-file:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.add-story textarea {
+  resize: vertical;
+}
+
+.add-story .input.read-only {
+  background-color: #e5e7eb;
+  color: #4b5563;
+  cursor: not-allowed;
+}
+
+.dark .add-story .input.read-only {
+  background-color: #4b5563;
+  color: #d1d5db;
+}

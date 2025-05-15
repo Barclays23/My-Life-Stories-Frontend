@@ -1,0 +1,17 @@
+.hero {
+  position: relative;
+  height: 24rem; /* h-96 */
+}
+
+.hero .bg-cover {
+  background-size: cover;
+  background-position: center;
+}
+
+.light .hero {
+  background-color: #f3f4f6; /* bg-gray-100 */
+}
+
+.dark .hero {
+  background-color: #374151; /* bg-gray-700 */
+}

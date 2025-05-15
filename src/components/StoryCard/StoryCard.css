@@ -1,0 +1,41 @@
+.story-card {
+  background-color: #1f2937;
+  color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.light .story-card {
+  background-color: #ebeaea;
+  color: #1f2937;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.story-card:hover {
+  transform: scale(1.05);
+}
+
+.story-title {
+  color: #fe3737;
+  font-size: x-large;
+}
+
+.part-number {
+  color: rgb(255, 153, 153);
+}
+
+.light .part-number {
+  color: rgb(43, 43, 43);
+}
+
+.story-preview {
+  overflow: hidden;
+  text-overflow: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show before cutting off */
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
+  /* max-height: calc(1.5em * 3); ensure the height matches line-clamp */
+  word-break: break-word;
+}

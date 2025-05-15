@@ -1,0 +1,285 @@
+
+.story {
+  margin-top: 6rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+/* Part Header */
+.part-header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--text-color);
+  padding-bottom: 1rem;
+}
+
+.part-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px;
+}
+
+.part-title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.admin-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Story Section */
+.story-section {
+  /* border: 1px solid var(--text-color); */
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 2px 8px var(--text-color);
+}
+
+.story-title {
+  font-size: 1.75rem;
+  color: var(--title-color);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.story-content-wrapper {
+  overflow: hidden;
+}
+
+.story-image {
+  float: left;
+  width: 500px;
+  height: 300px;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  /* height: auto; */
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px var(--text-color);
+}
+
+.story-text {
+  flex: 1;
+  min-width: 300px; /* Ensure text doesn't shrink too much */
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.story-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Edit Forms */
+.edit-part-form,
+.edit-story-form {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--text-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  margin: 0 auto 3rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  /* display: block; */
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-input-file {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  font-size: 1.3rem;
+  color: var(--text-color);
+}
+
+.dark input, .dark textarea {
+  background-color: var(--secondary-color);
+}
+
+.form-input:focus,
+.form-input-file:focus {
+  outline: none;
+  border-color: var(--border-color);
+}
+
+.form-textarea {
+  height: 500px;
+  resize: vertical;
+}
+
+.image-preview-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 1rem;
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--accent-color);
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--prima-color);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-weight: 900;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image-upload {
+  margin-top: 0.5rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-upload,
+.btn-submit {
+  background-color: var(--btn-edit-bg);
+  color: var(--btn-edit-text);
+}
+
+.btn-edit:hover,
+.btn-upload:hover,
+.btn-submit:hover {
+  background-color: color-mix(in srgb, var(--btn-edit-bg) 80%, #000);
+}
+
+.btn-delete {
+  background-color: var(--btn-delete-bg);
+  color: var(--btn-text);
+}
+
+.btn-delete:hover {
+  background-color: color-mix(in srgb, var(--btn-delete-bg) 80%, #000);
+}
+
+.btn-cancel {
+  background-color: var(--btn-cancel-bg);
+  color: var(--btn-text);
+}
+
+.btn-cancel:hover {
+  background-color: color-mix(in srgb, var(--btn-cancel-bg) 80%, #000);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .part-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .admin-controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .part-title {
+    font-size: 2rem;
+  }
+
+  .story-content-wrapper {
+    flex-direction: column;
+  }
+
+  .story-image {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 0.7rem;
+    margin-right: 1rem;
+  }
+
+  .story-text {
+    min-width: 100%;
+    font-size: medium;
+  }
+
+  .story-title {
+    font-size: 1.5rem;
+  }
+
+  .edit-part-form,
+  .edit-story-form {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .part-title {
+    font-size: 1.75rem;
+  }
+
+  .story-title {
+    font-size: 1.25rem;
+  }
+
+  .admin-controls,
+  .story-actions,
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

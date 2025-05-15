@@ -1,0 +1,228 @@
+.navbar {
+  background: linear-gradient(to right, #2d3748, #1a202c);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: 'Manjari', sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .navbar {
+  background: linear-gradient(to right, #ffffff, #f3f4f6);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  width: 2.5rem;
+  height: auto;
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.5));
+}
+
+.navbar-link {
+  color: #e5e7eb;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  position: relative;
+  /* padding-bottom: 2px; */
+  padding-top: 5px;
+  transition: color 0.3s ease;
+}
+
+.light .navbar-link {
+  color: #1f2937;
+}
+
+.navbar-link:hover {
+  color: #ef4444;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ef4444;
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+.navbar-button {
+  color: #ffffff;
+  background: linear-gradient(to right, #ef4444, #f87171);
+  padding: 0rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.light .navbar-button {
+  color: #1f2937;
+  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+  border: 1px solid #ef4444;
+}
+
+.navbar-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #f87171, #ef4444);
+}
+
+.light .navbar-button:hover {
+  background: linear-gradient(to right, #e5e7eb, #d1d5db);
+}
+
+.navbar-button:active {
+  transform: scale(0.95);
+}
+
+.navbar-button-logout {
+  color: #ffffff;
+  background: linear-gradient(to right, #ef4444, #f87171);
+  /* padding: 0rem 0.6rem; Reduced height */
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding-top: 1px;
+  transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.light .navbar-button-logout {
+  color: #1f2937;
+  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+  border: 1px solid #ef4444;
+}
+
+.navbar-button-logout:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #f87171, #ef4444);
+}
+
+.light .navbar-button-logout:hover {
+  background: linear-gradient(to right, #e5e7eb, #d1d5db);
+}
+
+.navbar-button-logout:active {
+  transform: scale(0.95);
+}
+
+.navbar-profile img {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-profile img:hover {
+  border-color: #ef4444;
+  transform: scale(1.1);
+}
+
+.navbar-hamburger {
+  color: #e5e7eb;
+}
+
+.light .navbar-hamburger {
+  color: #1f2937;
+}
+
+.navbar-mobile-menu {
+  background: #1a202c;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+}
+
+.light .navbar-mobile-menu {
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-mobile-menu .navbar-link,
+.navbar-mobile-menu .navbar-button,
+.navbar-mobile-menu .navbar-button-logout,
+.navbar-mobile-menu .navbar-toggle {
+  display: block;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+.navbar-toggle {
+  position: relative;
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.5rem;
+}
+
+.navbar-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.navbar-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #ef4444, #f87171);
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+
+.light .navbar-toggle-slider {
+  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+  border: 1px solid #ef4444;
+}
+
+.navbar-toggle-slider:hover {
+  background: linear-gradient(to right, #f87171, #ef4444);
+}
+
+.light .navbar-toggle-slider:hover {
+  background: linear-gradient(to right, #e5e7eb, #d1d5db);
+}
+
+.navbar-toggle-slider:before {
+  position: absolute;
+  content: '';
+  height: 1.1rem;
+  width: 1.1rem;
+  left: 0.2rem;
+  bottom: 0.2rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.light .navbar-toggle-slider:before {
+  background-color: #1f2937;
+}
+
+.navbar-toggle input:checked + .navbar-toggle-slider:before {
+  transform: translateX(1rem);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar-mobile-menu .navbar-button,
+  .navbar-mobile-menu .navbar-button-logout {
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.25rem;
+  }
+  .navbar-mobile-menu .navbar-toggle {
+    padding: 0.3rem 0;
+  }
+}

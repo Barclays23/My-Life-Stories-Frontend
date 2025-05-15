@@ -1,0 +1,7 @@
+.home {
+  background-color: #111827;
+}
+
+.light .home {
+  background-color: #f9fafb;
+}

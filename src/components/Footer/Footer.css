@@ -1,0 +1,185 @@
+/* Base styles */
+.seperation-line {
+  color: red;
+  padding: 0 1rem;
+}
+
+.footer {
+  background-color: #020d21;
+  margin-top: 50px;
+}
+
+.footer-icon {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.footer-icon:hover {
+  color: red;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-info {
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: rgb(248, 43, 43);
+}
+
+.copyright {
+  letter-spacing: 3px;
+  word-spacing: 4px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 0.75rem; /* Matches text-xs */
+}
+
+/* Light theme */
+.light .footer {
+  background-color: #c5c5c5;
+  color: #1f2937;
+}
+
+.light .footer-icon:hover {
+  color: rgb(255, 1, 1);
+}
+
+.light .contact-info a {
+  color: #1d2229;
+}
+
+.light .contact-info a:hover {
+  color: red;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 1rem 1rem;
+  }
+
+  .social-media {
+    gap: 1.25rem;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .contact-info {
+    font-size: 1rem;
+  }
+
+  .seperation-line {
+    padding: 0 0.75rem;
+  }
+
+  .copyright {
+    letter-spacing: 2.5px;
+    word-spacing: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+    .footer {
+    padding: 0.1rem 1rem;
+  }
+
+  .social-media {
+    gap: 1rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-info {
+    font-size: 0.9rem;
+  }
+
+  .seperation-line {
+    padding: 0 0.5rem;
+  }
+
+  .copyright {
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 1rem 0.75rem;
+  }
+
+  .social-media {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .icon {
+    width: 18px; /* Slightly smaller than current 1.25rem (20px) */
+    height: 18px;
+  }
+
+  .contact-info {
+    font-size: 0.85rem;
+  }
+
+  .seperation-line {
+    padding: 0 0.4rem;
+  }
+
+  .copyright {
+    letter-spacing: 1.5px;
+    word-spacing: 1.5px;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem 0.5rem;
+  }
+
+  .social-media {
+    gap: 0.75rem;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .seperation-line {
+    display: none; /* Hide separator when stacking vertically */
+  }
+
+  .copyright {
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-size: 0.6rem;
+  }
+}

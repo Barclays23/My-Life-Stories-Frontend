@@ -1,0 +1,41 @@
+.book-card {
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+.light .book-card {
+  background-color: #ffffff;
+  border-color: var(--accent-color);
+}
+
+.dark .book-card {
+  background-color: #1f2937; /* bg-gray-800 */
+  border-color: var(--accent-color);
+}
+
+.book-card img {
+  width: 100%;
+  height: 12rem; /* h-48 */
+  object-fit: cover;
+  border-radius: 0.5rem; /* rounded-md */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.book-card h3 {
+  color: var(--primary-color);
+}
+
+.light .book-card p {
+  color: #4b5563; /* text-gray-600 */
+}
+
+.dark .book-card p {
+  color: #d1d5db; /* text-gray-300 */
+}
+
+.book-card .text-sm {
+  font-size: 0.875rem;
+}

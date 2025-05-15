@@ -1,0 +1,31 @@
+.part-card {
+  transition: background-color 0.3s ease;
+}
+
+.part-card:hover {
+  background-color: var(--accent-color);
+}
+
+.part-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.btn:hover {
+  background-color: #b91c1c;
+}
+
+.dark .btn:hover {
+  background-color: #dc2626;
+}

@@ -1,0 +1,154 @@
+/* https://tailwindcss.com/docs/installation/using-vite */
+/* USE THIS LINK TO SET UP TAILWIND CSS STYLE TO THE PROJECT */
+
+
+
+/* @import "tailwindcss"; */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* manjari-100 - latin_latin-ext_malayalam */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manjari';
+  font-style: normal;
+  font-weight: 100;
+  src: url('./assets/fonts/manjari-v12-latin_latin-ext_malayalam-100.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* manjari-regular - latin_latin-ext_malayalam */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manjari';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/manjari-v12-latin_latin-ext_malayalam-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* manjari-700 - latin_latin-ext_malayalam */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manjari';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/manjari-v12-latin_latin-ext_malayalam-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* merriweather-sans-300 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./assets/fonts/merriweather-sans-v26-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* merriweather-sans-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/merriweather-sans-v26-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* merriweather-sans-italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Merriweather Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('./assets/fonts/merriweather-sans-v26-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* merriweather-sans-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/merriweather-sans-v26-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* merriweather-sans-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/merriweather-sans-v26-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+
+
+
+
+:root {
+  --bg-color: #f9fafb;
+  --text-color: #1f2937;
+  --primary-color: #dc2626;
+  --secondary-color: #1f2937;
+  --accent-color: #6b7280;
+}
+
+.dark {
+  --bg-color: #111827;
+  --text-color: #ffffff;
+  --primary-color: #ef4444;
+  --secondary-color: #374151;
+  --accent-color: #9ca3af;
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Manjari', 'Merriweather Sans', sans-serif;
+  /* font-family: 'Merriweather Sans', 'Manjari', sans-serif; */
+  font-size: 1.125rem;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Malayalam Font Priority */
+[lang="ml"] {
+  font-family: 'Manjari', 'Merriweather Sans', sans-serif;
+}
+
+/* react-toastify Styles */
+.Toastify__toast {
+  font-family: 'Merriweather Sans', sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+}
+
+.dark .Toastify__toast {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.Toastify__toast--success {
+  border-left: 4px solid #10b981;
+}
+
+.Toastify__toast--error {
+  border-left: 4px solid var(--primary-color);
+}
+
+.Toastify__toast--info {
+  border-left: 4px solid #3b82f6;
+}
+
+.Toastify__close-button {
+  color: var(--text-color);
+}
+
+.Toastify__close-button:hover {
+  color: var(--primary-color);
+}

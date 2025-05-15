@@ -1,0 +1,29 @@
+.moment {
+  border: 1px solid var(--accent-color);
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 1.5rem; /* p-6 */
+  position: relative;
+}
+
+.light .moment {
+  background-color: #ffffff;
+  border-color: var(--accent-color);
+}
+
+.dark .moment {
+  background-color: #1f2937; /* bg-gray-800 */
+  border-color: var(--accent-color);
+}
+
+.moment h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.light .moment p {
+  color: #374151; /* text-gray-700 */
+}
+
+.dark .moment p {
+  color: #d1d5db; /* text-gray-300 */
+}

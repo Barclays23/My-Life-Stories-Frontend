@@ -1,0 +1,96 @@
+.login {
+  background-color: var(--bg-color);
+  min-height: calc(100vh - 64px); /* Adjust for navbar height */
+}
+
+.login-card {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white for light mode */
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+body.dark .login-card {
+  background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent black for dark mode */
+}
+
+.form-group {
+  margin-bottom: 0.1rem;
+  margin-top: 1.1rem;
+}
+
+.input {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 1px solid var(--accent-color);
+  padding: 8px;
+  margin: 4px 0;
+  width: 100%;
+  border-radius: 4px;
+}
+
+body.dark .input {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+body.light .input {
+  background-color: #ffffff;
+  border-color: #d1d5db;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #dc2626;
+}
+
+.text-primary-color {
+  color: var(--primary-color);
+}
+
+.text-primary-color:hover {
+  text-decoration: underline;
+}
+
+
+.forget-password-link {
+  font-size: 1rem;
+  margin-top: 0px;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .login {
+    margin-top: 6rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .register-link {
+    font-size: medium;
+  }
+}
+
+@media (max-width: 320px) {
+  .register-link {
+    font-size: medium;
+  }
+}
