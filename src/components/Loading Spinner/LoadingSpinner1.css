@@ -8,10 +8,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(227, 227, 227);
+  z-index: 10000;
   /* background-color: rgba(0, 0, 0, 0.7); Grey overlay */
   /* background-color: rgb(0, 0, 0); Black overlay */
   /* background-color: #111827; */
-  z-index: 9999;
+}
+
+.dark .spinner-container-1 {
+  background-color: rgb(6, 0, 31);
 }
 
 .spinner-1 {

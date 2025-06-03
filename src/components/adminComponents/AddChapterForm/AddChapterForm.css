@@ -1,0 +1,11 @@
+
+
+.add-chapter-card {
+   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+   background: var(--bg-color);
+}
+
+.dark .add-chapter-card {
+   box-shadow: 0px 2px 15px rgba(224, 223, 223, 0.5);
+}
+

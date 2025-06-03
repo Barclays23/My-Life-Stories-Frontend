@@ -1,0 +1,12 @@
+/* Default (Light mode) */
+.summary-card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(21, 36, 59, 0.3); /* Tailwind blue-500 */
+    transition: box-shadow 0.3s ease;
+}
+
+/* Dark mode support */
+.dark .summary-card {
+    background-color: #020d21;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.226); /* Soft white */
+}

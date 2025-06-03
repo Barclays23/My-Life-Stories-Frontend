@@ -1,0 +1,85 @@
+.form-container {
+    background-color: #e3e3e3;
+}
+
+.dark .form-container {
+    background-color: #151f33;
+}
+
+.genre-label {
+    border: 1px solid #a2a4a9;
+}
+
+.dark .genre-label {
+    border: 1px solid #f97373a9;
+}
+
+.cancel-btn {
+    background-color: #6b7280;
+    color: white;
+    border: 1px solid #a2a4a947;
+}
+
+.cancel-btn:hover {
+    background-color: #374151;
+    color: white;
+}
+
+.dark .cancel-btn {
+    background-color: #374151;
+    color: white;
+    border: 1px solid #a2a4a947;
+}
+
+.dark .cancel-btn:hover {
+    background-color: #6b7280;
+    color: white;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 2px;
+}
+
+
+
+/* file upload button */
+.file-btn {
+  @apply inline-block px-4 py-2 bg-[var(--primary-color)] text-white rounded cursor-pointer hover:opacity-90;
+}
+
+/* thumbnail container */
+.thumb-wrapper {
+  width: 130px;          /* adjust to taste */
+  aspect-ratio: 3 / 4;   /* keeps book-cover proportions */
+}
+
+.thumb-img {
+  @apply w-full h-full object-cover rounded;
+}
+
+/* remove (×) badge */
+.remove-btn {
+  @apply absolute -top-2 -right-2 bg-red-500 text-white w-6 h-6 flex
+          items-center justify-center rounded-full text-sm leading-none;
+}
+
+.input {
+  @apply text-sm   /* phones */
+         sm:text-base
+         md:text-[1.05rem]
+         lg:text-[1.1rem];
+}
+
+button,
+.file-btn,
+.cancel-btn {
+  @apply text-sm sm:text-base md:text-[1.05rem];
+}
+
+/* Genre labels */
+.genre-label {
+  @apply text-xs sm:text-sm md:text-base;
+}
+

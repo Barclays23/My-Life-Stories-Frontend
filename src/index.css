@@ -94,6 +94,13 @@
   --primary-color: #dc2626;
   --secondary-color: #1f2937;
   --accent-color: #6b7280;
+
+  
+  --badge-blue-bg: rgba(37, 99, 235, 0.1);
+  --badge-blue-text: var(--primary-color);
+  --badge-green-bg: rgba(16, 185, 129, 0.1);
+  --badge-purple-bg: rgba(139, 92, 246, 0.1);
+  --badge-yellow-bg: rgba(234, 179, 8, 0.1);
 }
 
 .dark {
@@ -103,6 +110,26 @@
   --secondary-color: #374151;
   --accent-color: #9ca3af;
 }
+
+
+
+
+
+/* sidebar scroll bar subtle, matches theme (FOR ADMIN PANEL) */
+aside::-webkit-scrollbar {
+  width: 6px;
+}
+aside::-webkit-scrollbar-track {
+  background: transparent;
+}
+aside::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+
+
+
 
 /* Base Styles */
 body {
@@ -115,6 +142,10 @@ body {
   color: var(--text-color);
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 /* Malayalam Font Priority */
 [lang="ml"] {
   font-family: 'Manjari', 'Merriweather Sans', sans-serif;
@@ -122,33 +153,6 @@ body {
 
 /* react-toastify Styles */
 .Toastify__toast {
-  font-family: 'Merriweather Sans', sans-serif;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--text-color);
-  border: 1px solid var(--accent-color);
-  border-radius: 8px;
-}
-
-.dark .Toastify__toast {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.Toastify__toast--success {
-  border-left: 4px solid #10b981;
-}
-
-.Toastify__toast--error {
-  border-left: 4px solid var(--primary-color);
-}
-
-.Toastify__toast--info {
-  border-left: 4px solid #3b82f6;
-}
-
-.Toastify__close-button {
-  color: var(--text-color);
-}
-
-.Toastify__close-button:hover {
-  color: var(--primary-color);
+  /* font-size: small; */
+  font-size: medium;
 }

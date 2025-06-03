@@ -1,5 +1,5 @@
 import React from 'react';
-import './Hero.css';
+import './Hero2.css';
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
       />
       <div className="gradient-shade absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
 
-      <div className="hero-content mt-[15%] relative z-10 px-4 sm:px-6 lg:px-8">
+      <div className="hero-content mt-[15%] relative z-10 px-0">
         <h1 className="hero-title text-xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">
           Fr<span className='text-orange-500'>o</span>m
           G<span className='text-orange-500'>o</span>ld

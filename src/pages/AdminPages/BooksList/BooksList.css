@@ -1,0 +1,23 @@
+.table-head {
+  background-color: #cccccc;
+}
+
+.table-body {
+  background-color: #eeeeee;
+}
+
+.dark .table-head {
+  background-color: var(--secondary-color);
+}
+
+.dark .table-body {
+  background-color: #222a39;
+}
+
+.table-body-row:hover {
+  background-color: rgb(225, 225, 225);
+}
+
+.dark .table-body-row:hover {
+  background-color: rgba(50, 54, 75, 0.607);
+}

@@ -1,0 +1,9 @@
+.dark .add-moment-modal-container {
+    /* background-color: rgb(14, 18, 30); */
+    background: var(--bg-color);
+    box-shadow: 0px 1px 13px rgba(224, 223, 223, 0.5);
+}
+
+.dark .headings {
+    color: rgb(205, 202, 202);
+}

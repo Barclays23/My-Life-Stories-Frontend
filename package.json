@@ -1,5 +1,5 @@
 {
-  "name": "brocamp-life-stories",
+  "name": "my-life-stories",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.9.0",
     "express": "^5.1.0",
     "firebase": "^11.7.1",
     "react": "^19.1.0",

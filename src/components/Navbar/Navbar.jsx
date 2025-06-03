@@ -5,9 +5,12 @@ import { auth, signOut } from '../../firebase/firebase';
 import './Navbar.css';
 import { AuthContext } from '../../contexts/AuthContext';
 
+
+
+
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
+  // console.log('currentUser :', currentUser?.email, ' - isAdmin :', currentUser?.isAdmin);
   
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
@@ -38,11 +41,11 @@ const Navbar = () => {
             <Link to="/" className="navbar-link">Home</Link>
             <Link to="/stories" className="navbar-link">Stories</Link>
             <Link to="/books" className="navbar-link">Books</Link>
-            {isAdmin && (
+            {currentUser?.isAdmin && (
               <>
                 <Link to="/create-book" className="navbar-link">Create Book</Link>
                 <Link to="/add-story" className="navbar-link">Add Story</Link>
-                <Link to="/admin-dashboard" className="navbar-link">Dashboard</Link>
+                <Link to="/admin" className="navbar-link">Dashboard</Link>
               </>
             )}
           </div>
@@ -90,11 +93,11 @@ const Navbar = () => {
           <Link to="/" className="navbar-link block py-2 px-4" onClick={toggleMenu}>Home</Link>
           <Link to="/stories" className="navbar-link block py-2 px-4" onClick={toggleMenu}>Stories</Link>
           <Link to="/books" className="navbar-link block py-2 px-4" onClick={toggleMenu}>Books</Link>
-          {isAdmin && (
+          {currentUser?.isAdmin && (
             <>
               <Link to="/create-book" className="navbar-link block py-2 px-4" onClick={toggleMenu}>Create Book</Link>
               <Link to="/add-story" className="navbar-link block py-2 px-4" onClick={toggleMenu}>Add Story</Link>
-              <Link to="/admin-dashboard" className="navbar-link block py-2 px-4" onClick={toggleMenu}>Dashboard</Link>
+              <Link to="/admin" className="navbar-link block py-2 px-4" onClick={toggleMenu}>Dashboard</Link>
             </>
           )}
 

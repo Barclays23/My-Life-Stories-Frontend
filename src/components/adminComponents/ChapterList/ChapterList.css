@@ -1,0 +1,7 @@
+.table-body-row:hover {
+    background-color: rgb(225, 225, 225);
+}
+
+.dark .table-body-row:hover {
+    background-color: rgba(50, 54, 75, 0.607);
+}

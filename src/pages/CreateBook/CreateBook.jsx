@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 import { db } from '../../firebase/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
 const CreateBook = () => {
+  const [formLoading, setFormLoading] = useState(false); // Added for form submission
+  const { token } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+
   const [formData, setFormData] = useState({
     title: '',
     tagline: '',
@@ -20,7 +26,7 @@ const CreateBook = () => {
     ratingAverage: 0,
     ratingCount: 0
   });
-  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,6 +44,8 @@ const CreateBook = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormLoading(true);
+
     try {
       const docRef = await addDoc(collection(db, 'books'), {
         ...formData,
@@ -47,10 +55,16 @@ const CreateBook = () => {
       toast.success('Book created successfully!');
       navigate(`/book/${docRef.id}`);
     } catch (error) {
-      toast.error('Failed to create book.');
+      toast.error('Failed to create book: ' + error.message);
       console.error(error);
+    } finally {
+      setFormLoading(false);
     }
   };
+
+  if (formLoading) {
+    return <LoadingSpinner1 />;
+  }
 
   return (
     <div className="container mx-auto py-8">

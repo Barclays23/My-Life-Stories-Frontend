@@ -1,0 +1,15 @@
+.table-head {
+  background-color: #cccccc;
+}
+
+.table-body {
+  background-color: #eeeeee;
+}
+
+.dark .table-head {
+  background-color: var(--secondary-color);
+}
+
+.dark .table-body {
+  background-color: #222a39;
+}

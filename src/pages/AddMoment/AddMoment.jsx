@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../../firebase/firebase';
-import { doc, getDoc, collection, getDocs, addDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
+import { AuthContext } from '../../contexts/AuthContext';
+import api from '../../utils/api';
 import { toast } from 'react-toastify';
+import LoadingSpinner1 from '../../components/Loading Spinner/LoadingSpinner1';
+import LoadingSpinner2 from '../../components/Loading Spinner/LoadingSpinner2';
+// import './AddMoment.css';
 
 const AddMoment = () => {
   const { bookId, chapterId } = useParams();
@@ -10,26 +15,25 @@ const AddMoment = () => {
   const [chapterTitle, setChapterTitle] = useState('');
   const [momentTitle, setMomentTitle] = useState('');
   const [content, setContent] = useState('');
-  const [moments, setMoments] = useState([]);
+  const [pageLoading, setPageLoading] = useState(true); // For initial data fetch
+  const [formLoading, setFormLoading] = useState(false); // For form submission
+  const { token } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      const bookDoc = await getDoc(doc(db, 'books', bookId));
-      if (bookDoc.exists()) {
-        setBookTitle(bookDoc.data().title);
-      }
+      try {
+        setPageLoading(true);
+        const bookDoc = await getDoc(doc(db, 'books', bookId));
+        if (bookDoc.exists()) setBookTitle(bookDoc.data().title);
 
-      const chapterDoc = await getDoc(doc(db, 'chapters', chapterId));
-      if (chapterDoc.exists()) {
-        setChapterTitle(chapterDoc.data().chapterTitle);
+        const chapterDoc = await getDoc(doc(db, 'chapters', chapterId));
+        if (chapterDoc.exists()) setChapterTitle(chapterDoc.data().chapterTitle);
+      } catch (error) {
+        toast.error('Failed to load data: ' + error.message);
+      } finally {
+        setPageLoading(false);
       }
-
-      const momentsSnapshot = await getDocs(collection(db, 'moments'));
-      const momentsList = momentsSnapshot.docs
-        .map(doc => ({ id: doc.id, ...doc.data() }))
-        .filter(moment => moment.chapterId === chapterId);
-      setMoments(momentsList);
     };
 
     fetchData();
@@ -37,24 +41,25 @@ const AddMoment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormLoading(true);
     try {
-      const newMomentNumber = moments.length + 1;
-      await addDoc(collection(db, 'moments'), {
-        chapterId,
-        momentTitle,
-        content,
-        momentNumber: newMomentNumber,
-        isPublished: false,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      });
+      await api.createMoment(token, { chapterId, momentTitle, content });
       toast.success('Moment added successfully!');
       navigate(`/book/${bookId}/chapter/${chapterId}`);
     } catch (error) {
-      toast.error('Failed to add moment.');
-      console.error(error);
+      toast.error('Failed to add moment: ' + error.message);
+    } finally {
+      setFormLoading(false);
     }
   };
+
+  if (pageLoading) {
+    return <LoadingSpinner2 />;
+  }
+
+  if (formLoading) {
+    return <LoadingSpinner1 />;
+  }
 
   return (
     <div className="container mx-auto py-8">

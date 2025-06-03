@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { auth } from '../../firebase/firebase';
-import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import LoadingSpinner1 from '../../components/Loading Spinner/LoadingSpinner1';
 import './Login.css';
 import { toast } from 'react-toastify';
+
+// FOR CLIENT SDK
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../../firebase/firebase';
+
+import { firebaseErrorMap } from '../../firebase/firebaseErrorMap';
+import apiCalls from '../../utils/api';
+
+
+
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -12,55 +20,60 @@ function Login() {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [resetMode, setResetMode] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [formLoading, setFormLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const validateInputs = () => {
-    setEmailError('');
-    setPasswordError('');
+   // FORM VALIDATIONS
+   const validateInputs = () => {
+      setEmailError('');
+      setPasswordError('');
 
-    let isValid = true;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let isValid = true;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!email) {
-      setEmailError('Please enter your email address.');
-      isValid = false;
-    } else if (!emailRegex.test(email)) {
-      setEmailError('Please enter a valid email address.');
-      isValid = false;
-    }
-
-    if (!resetMode) {
-      if (!password) {
-        setPasswordError('Please enter your password.');
-        isValid = false;
-      } else if (password.length < 6) {
-        setPasswordError('Password must be at least 6 characters long.');
-        isValid = false;
+      if (!email) {
+         setEmailError('Please enter your email address.');
+         isValid = false;
+      } else if (!emailRegex.test(email)) {
+         setEmailError('Please enter a valid email address.');
+         isValid = false;
       }
-    }
 
-    return isValid;
-  };
+      if (!resetMode) {
+         if (!password) {
+         setPasswordError('Please enter your password.');
+         isValid = false;
+         } else if (password.length < 6) {
+         setPasswordError('Password must be at least 6 characters long.');
+         isValid = false;
+         }
+      }
 
-  const handleLoginFormSubmit = async (e) => {
-    e.preventDefault();
-    if (!validateInputs()) return;
+      return isValid;
+   };
 
-    try {
-      setLoading(true);
-      await signInWithEmailAndPassword(auth, email, password);
-      toast.success('You have successfully signed in.');
-      navigate('/');
-    } catch (err) {
-      const errorMessage = getErrorMessage[err.code] || 'Login Failed! Please try again.';
-      console.log('login errorMessage:', errorMessage);
-      toast.error(errorMessage);
-    } finally {
-      setLoading(false);
-    }
-  };
+   // HANDLE LOGIN FORM SUBMISSION
+   const handleLoginFormSubmit = async (e) => {
+      e.preventDefault();
+      if (!validateInputs()) return;
+
+      try {
+         setFormLoading(true);
+         const res = await signInWithEmailAndPassword(auth, email, password);
+         console.log('login res :', res);
+         
+         toast.success('You have successfully signed in.');
+         navigate('/');
+      } catch (error) {
+         // const errorMessage = getErrorMessage[err.code] || 'Login Failed! Please try again.';
+         let errorMessage = error.response?.data?.error || firebaseErrorMap.get(error?.code) || 'An unexpected error occurred. Please try again.';
+         console.log('login errorMessage:', errorMessage);
+         toast.error(errorMessage);
+      } finally {
+         setFormLoading(false);
+      }
+   };
 
   const handleResetFormSubmit = async (e) => {
     e.preventDefault();
@@ -76,7 +89,7 @@ function Login() {
     }
 
     try {
-      setLoading(true);
+      setFormLoading(true);
       await sendPasswordResetEmail(auth, email);
       toast.success('Password reset link has been sent to your email! Check your inbox.');
       setEmail('');
@@ -85,30 +98,15 @@ function Login() {
       const errorMessage = getErrorMessage[err.code] || 'An unexpected error occurred. Please try again.';
       toast.error(errorMessage);
     } finally {
-      setLoading(false);
+      setFormLoading(false);
       setTimeout(() => {
         setResetMode(false);
       }, 3000);
     }
   };
 
-  const getErrorMessage = {
-    'auth/invalid-email': 'The email address is badly formatted.',
-    'auth/user-disabled': 'This account has been disabled by an administrator.',
-    'auth/user-not-found': 'No user found with this email address.',
-    'auth/wrong-password': 'The password is incorrect.',
-    'auth/too-many-requests': 'Too many failed attempts. Please try again later.',
-    'auth/network-request-failed': 'Network error. Please check your internet connection.',
-    'auth/internal-error': 'An internal error has occurred. Please try again.',
-    'auth/missing-password': 'Please enter your password.',
-    'auth/missing-email': 'Please enter your email address.',
-    'auth/invalid-credential': 'Invalid credential. Please try logging in again.',
-    'auth/email-already-in-use': 'This email is already registered.',
-    'auth/operation-not-allowed': 'Operation not allowed. Please contact support.',
-    'auth/weak-password': 'Password should be at least 6 characters.',
-  };
 
-  if (loading) {
+  if (formLoading) {
     return <LoadingSpinner1 />;
   }
 

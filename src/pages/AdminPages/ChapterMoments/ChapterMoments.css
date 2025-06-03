@@ -1,0 +1,9 @@
+.breadcrumb {
+  background: linear-gradient(to bottom, #cfcfcf, #eeeeee);
+  box-shadow: 3px 10px 15px rgba(0, 0, 0, 0.253), 0 4px 6px -2px rgba(0, 0, 0, 0.395);
+}
+
+.dark .breadcrumb {
+  background: linear-gradient(to bottom, #0c0e1efc, #151f2c);
+  box-shadow: 3px 10px 15px rgba(160, 160, 160, 0.1), 0 4px 6px -2px rgba(115, 115, 115, 0.05);
+}

@@ -1,0 +1,137 @@
+
+.magazine-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem;
+  background-color: #f9f7f4;
+}
+
+.dark .magazine-layout {
+  background-color: #121212;
+}
+
+.magazine-article {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.dark .magazine-article {
+  background: #1e1e1e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.magazine-article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.dark .magazine-article:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+.article-number {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  z-index: 2;
+}
+
+.dark .article-number {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.article-title {
+  font-size: 1.4rem;
+  margin: 0 0 1rem;
+  color: #2c3e50;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.dark .article-title {
+  color: #f0f0f0;
+}
+
+.article-text {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  color: #555;
+  flex-grow: 1;
+}
+
+.dark .article-text {
+  color: #b0b0b0;
+}
+
+
+.magazine-empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.dark .magazine-empty-state {
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.magazine-empty-state h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.dark .magazine-empty-state h2 {
+  color: #f0f0f0;
+}
+
+.magazine-empty-state p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.dark .magazine-empty-state p {
+  color: #a0a0a0;
+}
+
+
+.dark .btn-edit {
+  background-color: #2980b9;
+}
+
+.dark .btn-edit:hover {
+  background-color: #3498db;
+}
+
+.dark .btn-delete {
+  background-color: #c0392b;
+}
+
+.dark .btn-delete:hover {
+  background-color: #e74c3c;
+}

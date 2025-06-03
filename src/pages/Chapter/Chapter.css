@@ -1,0 +1,61 @@
+.chapter-container {
+  padding: 2rem 0; /* py-8 */
+}
+
+.chapter-container h1 {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.chapter-container h2 {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.chapter-container .preview-text {
+  color: #dc2626; /* text-red-600 */
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+.chapter-container .admin-section {
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.chapter-container .moments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* space-y-8 */
+}
+
+.chapter-container .comments-section {
+  margin-top: 2rem; /* mt-8 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.chapter-container .comment-box {
+  background-color: #f3f4f6; /* bg-gray-100 */
+  padding: 1rem; /* p-4 */
+  border-radius: 0.5rem; /* rounded-lg */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.dark .chapter-container .comment-box {
+  background-color: #374151; /* bg-gray-700 */
+}
+
+.chapter-container .comment-reply {
+  color: var(--primary-color);
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+.chapter-container .add-comment-section {
+  margin-top: 1rem; /* mt-4 */
+}
+
+.chapter-container .add-comment-section h3 {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
