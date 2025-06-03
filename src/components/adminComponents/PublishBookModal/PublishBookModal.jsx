@@ -1,29 +1,52 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { firebaseErrorMap } from '../../../firebase/firebaseErrorMap';
+import apiCalls from '../../../utils/api';
 import './PublishBookModal.css';
 
 
 
 
-const PublishBookModal = ({ bookTitle, existingPublishDate, onClose, onPublish }) => {
-   const [publishDate, setPublishDate] = useState(existingPublishDate || '');
+const PublishBookModal = ({bookId, bookTitle, existingPublishDate, onClose, onSuccess}) => {
+   const [publishDate, setPublishDate] = useState('');
+   const [isLoading, setIsLoading] = useState(false);
 
-   // Format existing date to YYYY-MM-DD for input[type=date]
+
    useEffect(() => {
       if (existingPublishDate) {
          const date = new Date(existingPublishDate);
-         const formattedDate = date.toISOString().split('T')[0]; // e.g., "2025-05-24"
+         const formattedDate = date.toISOString().split('T')[0];
          setPublishDate(formattedDate);
       }
    }, [existingPublishDate]);
 
-   const handleSubmit = () => {
+
+
+   const handlePublish = async () => {
       if (!publishDate) {
-         alert('Please select a publication date.');
+         toast.error('Please select a publication date.');
          return;
       }
-      onPublish(publishDate);
-      onClose();
+
+      try {
+         setIsLoading(true);
+         await apiCalls.togglePublishBook(bookId, true, publishDate);
+         toast.success("It's official — your book is now live!");
+         onSuccess();
+         onClose();
+
+      } catch (error) {
+         const message = firebaseErrorMap.get(error?.code) ?? 'Failed to publish book. Please try again.';
+         toast.error(message);
+
+      } finally {
+         setIsLoading(false);
+      }
    };
+
+
+
+
 
    return (
       <div className="modal-overlay">
@@ -35,17 +58,18 @@ const PublishBookModal = ({ bookTitle, existingPublishDate, onClose, onPublish }
             value={publishDate}
             onChange={(e) => setPublishDate(e.target.value)}
             className="date-input"
+            min={new Date().toISOString().split('T')[0]}
          />
          <div className="modal-actions">
-            <button onClick={onClose} className="cancel-button">
+            <button onClick={onClose} className="cancel-button" disabled={isLoading}>
                Cancel
             </button>
             <button
-               onClick={handleSubmit}
+               onClick={handlePublish}
                className="publish-button"
-               disabled={!publishDate}
+               disabled={!publishDate || isLoading}
             >
-               Publish
+               {isLoading ? 'Publishing...' : 'Publish'}
             </button>
          </div>
          </div>

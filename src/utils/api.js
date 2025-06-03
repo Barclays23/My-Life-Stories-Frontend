@@ -154,11 +154,9 @@ const apiCalls = {
   },
 
   togglePublishBook: async (bookId, shouldPublish, publishDate) => {
-    const config = await attachToken();
-    // const data = axios.patch(`${API_URL}/admin/publish-book/${bookId}`, { shouldPublish, publishDate }, config);
-    // return data
-    console.log('ivide toggle publish ethi: ', bookId, shouldPublish, publishDate);
+    // console.log('received in togglePublishBook: ', bookId, shouldPublish, publishDate);
     
+    const config = await attachToken();
     const response = await axios.patch(`${API_URL}/admin/publish-book/${bookId}`, { shouldPublish, publishDate }, config);
     return response.data;
   },
@@ -166,6 +164,10 @@ const apiCalls = {
 
 
   
+
+
+
+
   // ----------------------------------------------------------- CHAPTERS COLLECTION APIs --------------
   getChaptersByBook: async (bookId) => {
     const config = await attachToken();
@@ -209,6 +211,10 @@ const apiCalls = {
 
 
 
+
+
+
+
   // ----------------------------------------------------------- MOMENTS COLLECTION APIs --------------
   getMomentsByChapter: async (bookId, chapterNumber) => {
     // console.log('bookId & chapterNumber in API :', bookId, '-', chapterNumber);
@@ -246,6 +252,7 @@ const apiCalls = {
 
     return res.data;
   },
+
 
 
 
